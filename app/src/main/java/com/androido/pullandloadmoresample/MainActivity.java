@@ -17,6 +17,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ViewById;
 
@@ -36,6 +37,10 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     private int pageId = -1;
     private MyAdapter adapter;
     public FootUpdate mFootUpdate;
+    @ViewById
+    Toolbar toolbar;
+    @ViewById
+    FloatingActionButton fab;
     @ViewById
     ListView mListview;
     @ViewById
@@ -66,18 +71,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
 
     @AfterViews
     void initView(){
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         handler = new Handler();
         swipeRefreshLayout.setColorSchemeResources(R.color.refresh_icon_color);
         swipeRefreshLayout.setOnRefreshListener(this);
@@ -89,6 +83,11 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         refresh(); // 主动下拉刷新
     }
 
+    @Click()
+    void fabClicked(){
+        Snackbar.make(fab, "Replace with your own action", Snackbar.LENGTH_LONG)
+                .setAction("Action", null).show();
+    }
 
     private void refresh(){
         handler.postDelayed(new Runnable() {
