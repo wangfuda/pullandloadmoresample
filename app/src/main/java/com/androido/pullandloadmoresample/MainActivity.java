@@ -36,9 +36,9 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
     private int pageId = -1;
     private MyAdapter adapter;
     public FootUpdate mFootUpdate;
-    @ViewById(R.id.listview)
-    ListView listView;
-    @ViewById(R.id.swipeRefreshLayout)
+    @ViewById
+    ListView mListview;
+    @ViewById
     SwipeRefreshLayout swipeRefreshLayout;
 
 
@@ -82,10 +82,10 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         swipeRefreshLayout.setColorSchemeResources(R.color.refresh_icon_color);
         swipeRefreshLayout.setOnRefreshListener(this);
         mFootUpdate = new FootUpdate();
-        mFootUpdate.init(listView, LayoutInflater.from(this), this);
+        mFootUpdate.init(mListview, LayoutInflater.from(this), this);
         msgs = new ArrayList<String>();
         adapter = new MyAdapter(this);
-        listView.setAdapter(adapter);
+        mListview.setAdapter(adapter);
         refresh(); // 主动下拉刷新
     }
 

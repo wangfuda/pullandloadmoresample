@@ -17,7 +17,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ListView
-            android:id="@+id/listview"
+            android:id="@+id/mListview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center"
