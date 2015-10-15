@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
             {"智利","波多黎各","南非","韩国","墨西哥","土耳其","埃及","委内瑞拉","玻利维亚","乌克兰"},
             {"以色列","海地","中国","沙特阿拉伯","俄罗斯","哥伦比亚","尼日利亚","巴基斯坦","伊朗","伊拉克"}
     };
+
     private Handler handler;
     private ArrayList<String> msgs;
     private int pageId = -1;
